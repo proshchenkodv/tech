@@ -16,7 +16,7 @@ import java.util.List;
 @Getter
 @ToString
 @EqualsAndHashCode
-@Table(schema = "public")
+@Table
 public class NaturList {
     @Id
     private Long id;

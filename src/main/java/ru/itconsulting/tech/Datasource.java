@@ -19,7 +19,6 @@ import java.io.IOException;
 import java.util.Properties;
 
 @Component
-@EnableTransactionManagement
 public class Datasource {
     @Autowired
     private Environment env;
@@ -50,7 +49,7 @@ public class Datasource {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
 
         // Package contain entity classes
-        em.setPackagesToScan("ru.itconsulting.dao.local");
+        em.setPackagesToScan("ru.itconsulting.dao");
         em.setDataSource(pgDs);
         em.setJpaProperties(properties);
         em.setJpaVendorAdapter(new HibernateJpaVendorAdapter());

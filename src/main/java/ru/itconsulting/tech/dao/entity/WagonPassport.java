@@ -13,6 +13,7 @@ import javax.persistence.*;
 @Getter
 @ToString
 @EqualsAndHashCode
+@Table
 public class WagonPassport {
     @Id
     private Long id;

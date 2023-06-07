@@ -12,10 +12,11 @@ import javax.persistence.*;
 @Getter
 @ToString
 @EqualsAndHashCode
+@Table
 public class StationPath {
     @Id
     private Long id;
     private String pathName;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private Station  station;
 }

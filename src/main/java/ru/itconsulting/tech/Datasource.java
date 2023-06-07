@@ -5,22 +5,27 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.liquibase.LiquibaseDataSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.core.env.Environment;
+import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 import java.io.IOException;
 import java.util.Properties;
 
-@Configuration
+@Component
 @EnableTransactionManagement
 public class Datasource {
     @Autowired
     private Environment env;
+    public static final int DEFAULT_TIMEOUT = 300;
 
+    @Primary
     @Bean("pgDs")
     @LiquibaseDataSource
     public DataSource getPostgresDataSource() {
@@ -31,7 +36,8 @@ public class Datasource {
         return dataSource;
     }
 
-    @Bean(name = "pgEntityManagerFactory")
+    @Primary
+    @Bean(name = "entityManagerFactory")
     public LocalContainerEntityManagerFactoryBean getSessionFactoryPostgres(@Autowired DataSource pgDs) throws IOException {
         Properties properties = new Properties();
 
@@ -40,7 +46,6 @@ public class Datasource {
         properties.put("hibernate.show_sql", env.getProperty("pg.spring.jpa.show-sql"));
         properties.put("hbm2ddl.auto", env.getProperty("pg.spring.jpa.hibernate.ddl-auto"));
         properties.put("current_session_context_class", env.getProperty("pg.spring.jpa.properties.hibernate.current_session_context_class"));
-        properties.put("hibernate.transaction.coordinator_class", "jta");
 
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
 
@@ -50,6 +55,15 @@ public class Datasource {
         em.setJpaProperties(properties);
         em.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
         return em;
+    }
+
+    @Primary
+    @Bean
+    public JpaTransactionManager transactionManager(LocalContainerEntityManagerFactoryBean localContainerEntityManagerFactoryBean) {
+        JpaTransactionManager transactionManager = new JpaTransactionManager();
+        transactionManager.setDefaultTimeout(DEFAULT_TIMEOUT);
+        transactionManager.setEntityManagerFactory(localContainerEntityManagerFactoryBean.getObject());
+        return transactionManager;
     }
 
 //    @Bean("orDs")

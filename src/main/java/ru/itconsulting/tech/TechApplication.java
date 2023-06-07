@@ -8,6 +8,7 @@ import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfigurat
 
 @SpringBootApplication(scanBasePackages = {"ru.itconsulting.tech"}, exclude = {
         DataSourceAutoConfiguration.class,
+        DataSourceTransactionManagerAutoConfiguration.class,
         HibernateJpaAutoConfiguration.class
 })
 public class TechApplication {

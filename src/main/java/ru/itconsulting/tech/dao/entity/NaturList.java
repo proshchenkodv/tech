@@ -8,6 +8,7 @@ import lombok.ToString;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import java.util.List;
 
 @Entity
@@ -15,6 +16,7 @@ import java.util.List;
 @Getter
 @ToString
 @EqualsAndHashCode
+@Table(schema = "public")
 public class NaturList {
     @Id
     private Long id;

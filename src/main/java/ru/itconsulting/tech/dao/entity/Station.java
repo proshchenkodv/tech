@@ -14,6 +14,7 @@ import java.util.List;
 @Getter
 @ToString
 @EqualsAndHashCode
+@Table
 public class Station {
     @Id
     private Long id;

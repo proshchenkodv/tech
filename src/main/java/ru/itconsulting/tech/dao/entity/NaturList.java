@@ -1,14 +1,8 @@
 package ru.itconsulting.tech.dao.entity;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
@@ -16,9 +10,12 @@ import java.util.List;
 @Getter
 @ToString
 @EqualsAndHashCode
-@Table
+@AllArgsConstructor
+@NoArgsConstructor
+@Table(name = "NATUR_LIST", schema = "tech")
 public class NaturList {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @OneToMany
     private List<Wagon> wagonList;

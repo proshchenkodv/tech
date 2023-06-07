@@ -1,10 +1,7 @@
 package ru.itconsulting.tech.dao.entity;
 
 import com.sun.javafx.beans.IDProperty;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
@@ -14,11 +11,14 @@ import java.util.List;
 @Getter
 @ToString
 @EqualsAndHashCode
-@Table
+@AllArgsConstructor
+@NoArgsConstructor
+@Table(name = "STATION", schema = "tech")
 public class Station {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String stationName;
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "station")
-    private List<StationPath> pathList;
+//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "station")
+//    private List<StationPath> pathList;
 }

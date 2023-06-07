@@ -1,9 +1,6 @@
 package ru.itconsulting.tech.dao.entity;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import ru.itconsulting.tech.enums.WagonTypeEnum;
 
 import javax.persistence.*;
@@ -13,9 +10,12 @@ import javax.persistence.*;
 @Getter
 @ToString
 @EqualsAndHashCode
-@Table
+@AllArgsConstructor
+@NoArgsConstructor
+@Table(name = "WAGON_PASSPORT", schema = "tech")
 public class WagonPassport {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @Enumerated(EnumType.STRING)
     private WagonTypeEnum type;

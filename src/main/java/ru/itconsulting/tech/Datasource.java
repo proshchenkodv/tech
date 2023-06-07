@@ -24,7 +24,7 @@ public class Datasource {
     private Environment env;
     public static final int DEFAULT_TIMEOUT = 300;
 
-    @Primary
+    
     @Bean("pgDs")
     @LiquibaseDataSource
     public DataSource getPostgresDataSource() {
@@ -35,7 +35,7 @@ public class Datasource {
         return dataSource;
     }
 
-    @Primary
+    
     @Bean(name = "entityManagerFactory")
     public LocalContainerEntityManagerFactoryBean getSessionFactoryPostgres(@Autowired DataSource pgDs) throws IOException {
         Properties properties = new Properties();
@@ -49,14 +49,14 @@ public class Datasource {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
 
         // Package contain entity classes
-        em.setPackagesToScan("ru.itconsulting.dao");
+        em.setPackagesToScan("ru.itconsulting.tech.dao");
         em.setDataSource(pgDs);
         em.setJpaProperties(properties);
         em.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
         return em;
     }
 
-    @Primary
+    
     @Bean
     public JpaTransactionManager transactionManager(LocalContainerEntityManagerFactoryBean localContainerEntityManagerFactoryBean) {
         JpaTransactionManager transactionManager = new JpaTransactionManager();

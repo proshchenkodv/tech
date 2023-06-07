@@ -1,22 +1,20 @@
 package ru.itconsulting.tech.dao.entity;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Setter
 @Getter
 @ToString
 @EqualsAndHashCode
-@Table
+@AllArgsConstructor
+@NoArgsConstructor
+@Table(name = "NOMENCLATURE", schema = "tech")
 public class Nomenclature {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String nomenclatureCode;
     private String nomenclatureName;

@@ -1,9 +1,6 @@
 package ru.itconsulting.tech.dao.entity;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -12,9 +9,12 @@ import javax.persistence.*;
 @Getter
 @ToString
 @EqualsAndHashCode
-@Table
+@AllArgsConstructor
+@NoArgsConstructor
+@Table(name = "STATION_PATH", schema = "tech")
 public class StationPath {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String pathName;
     @ManyToOne

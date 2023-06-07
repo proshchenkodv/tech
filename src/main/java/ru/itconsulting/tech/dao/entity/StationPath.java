@@ -4,7 +4,6 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import ru.itconsulting.tech.enums.WagonTypeEnum;
 
 import javax.persistence.*;
 
@@ -13,12 +12,10 @@ import javax.persistence.*;
 @Getter
 @ToString
 @EqualsAndHashCode
-public class WagonPassport {
+public class StationPath {
     @Id
     private Long id;
-    @Enumerated(EnumType.STRING)
-    private WagonTypeEnum type;
-    private String number;
-    private Double weight;
-    private Double capacity;
+    private String pathName;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Station  station;
 }

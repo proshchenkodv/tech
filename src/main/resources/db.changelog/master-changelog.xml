@@ -3,18 +3,19 @@
                    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                    classpath:www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.4.xsd">
-    <includeAll path="/db/changelog/DBLinks" relativeToChangelogFile="false"/>
-    <includeAll path="/db/changelog/Synonyms" relativeToChangelogFile="false"/>
-    <includeAll path="/db/changelog/Sequences" relativeToChangelogFile="false"/>
-    <includeAll path="/db/changelog/Tables" relativeToChangelogFile="false"/>
-    <includeAll path="/db/changelog/Indexes" relativeToChangelogFile="false"/>
-    <includeAll path="/db/changelog/TriggerFunctions" relativeToChangelogFile="false"/>
-    <includeAll path="/db/changelog/Triggers" relativeToChangelogFile="false"/>
-    <includeAll path="/db/changelog/Constraints" relativeToChangelogFile="false"/>
-    <includeAll path="/db/changelog/Functions" relativeToChangelogFile="false"/>
-    <includeAll path="/db/changelog/Procedures" relativeToChangelogFile="false"/>
-    <includeAll path="/db/changelog/Views" relativeToChangelogFile="false"/>
-    <includeAll path="/db/changelog/Grants" relativeToChangelogFile="false"/>
-    <includeAll path="/db/changelog/SchedulerJobs" relativeToChangelogFile="false"/>
-    <includeAll path="/db/changelog/Releases" relativeToChangelogFile="false"/>
+    <includeAll path="/db.changelog/Schema" relativeToChangelogFile="false"/>
+    <includeAll path="/db.changelog/DBLinks" relativeToChangelogFile="false"/>
+    <includeAll path="/db.changelog/Synonyms" relativeToChangelogFile="false"/>
+    <includeAll path="/db.changelog/Sequences" relativeToChangelogFile="false"/>
+    <includeAll path="/db.changelog/Tables" relativeToChangelogFile="false"/>
+    <includeAll path="/db.changelog/Indexes" relativeToChangelogFile="false"/>
+    <includeAll path="/db.changelog/TriggerFunctions" relativeToChangelogFile="false"/>
+    <includeAll path="/db.changelog/Triggers" relativeToChangelogFile="false"/>
+    <includeAll path="/db.changelog/Constraints" relativeToChangelogFile="false"/>
+    <includeAll path="/db.changelog/Functions" relativeToChangelogFile="false"/>
+    <includeAll path="/db.changelog/Procedures" relativeToChangelogFile="false"/>
+    <includeAll path="/db.changelog/Views" relativeToChangelogFile="false"/>
+    <includeAll path="/db.changelog/Grants" relativeToChangelogFile="false"/>
+    <includeAll path="/db.changelog/SchedulerJobs" relativeToChangelogFile="false"/>
+    <includeAll path="/db.changelog/Releases" relativeToChangelogFile="false"/>
 </databaseChangeLog>

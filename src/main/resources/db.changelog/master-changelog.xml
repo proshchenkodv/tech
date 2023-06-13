@@ -9,8 +9,8 @@
     <includeAll path="/db.changelog/Sequences" relativeToChangelogFile="false"/>
     <includeAll path="/db.changelog/Tables" relativeToChangelogFile="false"/>
     <includeAll path="/db.changelog/Indexes" relativeToChangelogFile="false"/>
-    <includeAll path="/db.changelog/TriggerFunctions" relativeToChangelogFile="false"/>
-    <includeAll path="/db.changelog/Triggers" relativeToChangelogFile="false"/>
+<!--    <includeAll path="/db.changelog/TriggerFunctions" relativeToChangelogFile="false"/>-->
+<!--    <includeAll path="/db.changelog/Triggers" relativeToChangelogFile="false"/>-->
     <includeAll path="/db.changelog/Constraints" relativeToChangelogFile="false"/>
     <includeAll path="/db.changelog/Functions" relativeToChangelogFile="false"/>
     <includeAll path="/db.changelog/Procedures" relativeToChangelogFile="false"/>

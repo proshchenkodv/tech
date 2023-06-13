@@ -1,6 +1,6 @@
 --liquibase formatted sql
 --changeset proshchenkodv:SSD-19 runOnChange:true splitStatements:false
-DROP TRIGGER IF EXISTS dct_bloc_bi ON rzd_wagon.dct_bloc;
+DROP TRIGGER IF EXISTS dct_bloc_bi ON rzd_wagon.wagon;
 CREATE or REPLACE FUNCTION rzd_wagon.dct_bloc_bi() RETURNS trigger AS
 $$
 BEGIN

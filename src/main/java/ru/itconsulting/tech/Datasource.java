@@ -18,15 +18,15 @@ import javax.sql.DataSource;
 import java.io.IOException;
 import java.util.Properties;
 
-@Component
+//@Component
 public class Datasource {
     @Autowired
     private Environment env;
     public static final int DEFAULT_TIMEOUT = 300;
 
     
-    @Bean("pgDs")
-    @LiquibaseDataSource
+//    @Bean("pgDs")
+//    @LiquibaseDataSource
     public DataSource getPostgresDataSource() {
         PGSimpleDataSource dataSource = new PGSimpleDataSource();
         dataSource.setUrl(env.getProperty("pg.spring.datasource.url"));
@@ -36,14 +36,14 @@ public class Datasource {
     }
 
     
-    @Bean(name = "entityManagerFactory")
+//    @Bean(name = "entityManagerFactory")
     public LocalContainerEntityManagerFactoryBean getSessionFactoryPostgres(@Autowired DataSource pgDs) throws IOException {
         Properties properties = new Properties();
 
         // See: application.properties
         properties.put("hibernate.dialect", env.getProperty("pg.spring.jpa.properties.hibernate.dialect"));
         properties.put("hibernate.show_sql", env.getProperty("pg.spring.jpa.show-sql"));
-        properties.put("hbm2ddl.auto", env.getProperty("pg.spring.jpa.hibernate.ddl-auto"));
+//            properties.put("hbm2ddl.auto", env.getProperty("pg.spring.jpa.hibernate.ddl-auto"));
         properties.put("current_session_context_class", env.getProperty("pg.spring.jpa.properties.hibernate.current_session_context_class"));
 
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
@@ -57,7 +57,7 @@ public class Datasource {
     }
 
     
-    @Bean
+//    @Bean
     public JpaTransactionManager transactionManager(LocalContainerEntityManagerFactoryBean localContainerEntityManagerFactoryBean) {
         JpaTransactionManager transactionManager = new JpaTransactionManager();
         transactionManager.setDefaultTimeout(DEFAULT_TIMEOUT);

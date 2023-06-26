@@ -2,8 +2,8 @@ package ru.itconsulting.tech.dao.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import ru.itconsulting.tech.dao.entity.StationEntity;
+import ru.itconsulting.tech.dao.entity.UserEntity;
 
 @Repository
-public interface StationRepository extends JpaRepository<StationEntity, Long> {
+public interface UserRepository extends JpaRepository<UserEntity, Integer> {
 }

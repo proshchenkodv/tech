@@ -5,22 +5,21 @@ import lombok.*;
 import javax.persistence.*;
 
 @Entity
-@Setter
 @Getter
-@ToString
-@EqualsAndHashCode
-@AllArgsConstructor
-@NoArgsConstructor
+@Setter
 @Table(name = "WAGON", schema = "tech")
-public class Wagon {
+public class WagonEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @ManyToOne
-    private WagonPassport wagonPassport;
+    private WagonPassportEntity wagonPassportEntity;
     private String wagonNumber;
     @ManyToOne
-    private Nomenclature nomenclature;
+    private NomenclatureEntity nomenclatureEntity;
     private Double nomenclatureWeight;
     private Double wagonWeight;
+    private Integer orderNum;
+    @ManyToOne
+    private StationPathEntity stationPathEntity;
 }

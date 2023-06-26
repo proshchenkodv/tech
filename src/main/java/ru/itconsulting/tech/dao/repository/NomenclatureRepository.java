@@ -2,8 +2,8 @@ package ru.itconsulting.tech.dao.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import ru.itconsulting.tech.dao.entity.Nomenclature;
+import ru.itconsulting.tech.dao.entity.NomenclatureEntity;
 
 @Repository
-public interface NomenclatureRepository extends JpaRepository<Nomenclature, Long> {
+public interface NomenclatureRepository extends JpaRepository<NomenclatureEntity, Long> {
 }

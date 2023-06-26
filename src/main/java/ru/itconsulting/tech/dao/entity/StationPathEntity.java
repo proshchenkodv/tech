@@ -5,18 +5,15 @@ import lombok.*;
 import javax.persistence.*;
 
 @Entity
-@Setter
 @Getter
-@ToString
-@EqualsAndHashCode
-@AllArgsConstructor
-@NoArgsConstructor
+@Setter
 @Table(name = "STATION_PATH", schema = "tech")
-public class StationPath {
+public class StationPathEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String pathName;
     @ManyToOne
-    private Station  station;
+    @JoinColumn(name = "STATION_ID")
+    private StationEntity stationEntity;
 }

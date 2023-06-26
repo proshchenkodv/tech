@@ -6,14 +6,10 @@ import ru.itconsulting.tech.enums.WagonTypeEnum;
 import javax.persistence.*;
 
 @Entity
-@Setter
 @Getter
-@ToString
-@EqualsAndHashCode
-@AllArgsConstructor
-@NoArgsConstructor
+@Setter
 @Table(name = "WAGON_PASSPORT", schema = "tech")
-public class WagonPassport {
+public class WagonPassportEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;

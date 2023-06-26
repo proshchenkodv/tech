@@ -1,24 +1,19 @@
 package ru.itconsulting.tech.dao.entity;
 
-import com.sun.javafx.beans.IDProperty;
 import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Setter
 @Getter
-@ToString
-@EqualsAndHashCode
-@AllArgsConstructor
-@NoArgsConstructor
+@Setter
 @Table(name = "STATION", schema = "tech")
-public class Station {
+public class StationEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String stationName;
-//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "station")
-//    private List<StationPath> pathList;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "station")
+    private List<StationPathEntity> pathList;
 }

@@ -5,17 +5,18 @@ import lombok.*;
 import javax.persistence.*;
 
 @Entity
-@Setter
 @Getter
-@ToString
-@EqualsAndHashCode
-@AllArgsConstructor
-@NoArgsConstructor
+@Setter
 @Table(name = "NOMENCLATURE", schema = "tech")
-public class Nomenclature {
+public class NomenclatureEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String nomenclatureCode;
     private String nomenclatureName;
 }
+
+
+
+    /*напиши сервисный уровень сущности
+    используя JPARepository*/
